@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Placement Preparation Tracker</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div id="glow-bg"></div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo">
+      <span class="logo-glow">⚡</span>
+      <h1>Prep<span class="accent">
+        Tracker</span></h1>
+    </div>
+
+    <div class="streak-card">
+      <div class="streak-icon">🔥</div>
+      <div class="streak-info">
+        <div class="streak-label">Daily Streak</div>
+        <div id="streakCount" class="streak-count">0</div>
+        <div id="streakHint" class="streak-hint">Complete one subtopic today!</div>
+      </div>
+    </div>
+
+    <div class="nav-header">
+      <span>Subjects</span>
+      <button id="addSubjectBtn" class="btn neon small">+ Add Subject</button>
+    </div>
+    <ul id="sidebarList" class="sidebar-list"></ul>
+
+    <div class="io-actions">
+      <button id="exportBtn" class="btn outline full">Export Progress</button>
+      <label for="importInput" class="btn outline full">Import Progress</label>
+      <input type="file" id="importInput" accept="application/json" hidden/>
+      <button id="resetBtn" class="btn danger full">Reset All</button>
+    </div>
+
+   
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+    <header class="main-header">
+      <div>
+        <h2>Placement Preparation <span class="accent">Roadmap</span></h2>
+        <p class="muted">Dark, neon, gaming-style tracker with streaks & local save</p>
+      </div>
+      <div class="search-wrap">
+        <input type="text" id="searchInput" placeholder="Search subjects/topics/subtopics..."/>
+      </div>
+    </header>
+
+    <section id="subjectsContainer" class="subjects"></section>
+  </main>
+
+  <!-- Floating Add Menu -->
+  <div class="fab-wrap">
+    <button id="fab" class="fab">+</button>
+    <div class="fab-menu" id="fabMenu">
+      <button class="fab-item" data-action="subject">+ Subject</button>
+      <button class="fab-item" data-action="topic">+ Topic (current)</button>
+      <button class="fab-item" data-action="subtopic">+ Subtopic (current)</button>
+    </div>
+  </div>
+
+  <!-- Toast / Quote -->
+  <div id="toast" class="toast"></div>
+
+  <!-- Minimal modal for prompts -->
+  <div id="modal" class="modal hidden" aria-hidden="true">
+    <div class="modal-content">
+      <h3 id="modalTitle">Add Item</h3>
+      <input id="modalInput" type="text" placeholder="Enter name"/>
+      <div class="modal-actions">
+        <button id="modalCancel" class="btn outline">Cancel</button>
+        <button id="modalOk" class="btn neon">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <audio id="tickSound" preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
